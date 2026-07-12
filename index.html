@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blood Bank Management System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">🩸 Blood Bank MS</div>
+    <nav>
+      <a href="index.html" class="active">Dashboard</a>
+      <a href="donors.html">Donors</a>
+      <a href="recipients.html">Recipients</a>
+      <a href="inventory.html">Inventory</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Dashboard</h1>
+    <p class="subtitle">Blood stock overview and quick stats</p>
+
+    <section class="stats-grid" id="statsGrid">
+      <div class="stat-card">
+        <h3>Total Donors</h3>
+        <p id="totalDonors">0</p>
+      </div>
+      <div class="stat-card">
+        <h3>Total Recipients</h3>
+        <p id="totalRecipients">0</p>
+      </div>
+      <div class="stat-card">
+        <h3>Total Units in Stock</h3>
+        <p id="totalUnits">0</p>
+      </div>
+      <div class="stat-card alert-card">
+        <h3>Low Stock Groups</h3>
+        <p id="lowStockCount">0</p>
+      </div>
+    </section>
+
+    <section class="stock-section">
+      <h2>Blood Stock by Group</h2>
+      <div class="stock-grid" id="stockGrid">
+        <!-- filled by JS -->
+      </div>
+    </section>
+
+    <section class="alerts-section" id="alertsSection">
+      <h2>⚠️ Low Stock Alerts</h2>
+      <ul id="alertsList" class="alerts-list">
+        <li class="empty-msg">No alerts</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Blood Bank Management System &copy; 2026</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

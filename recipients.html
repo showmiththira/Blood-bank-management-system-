@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipients - Blood Bank Management System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">🩸 Blood Bank MS</div>
+    <nav>
+      <a href="index.html">Dashboard</a>
+      <a href="donors.html">Donors</a>
+      <a href="recipients.html">Recipients</a>
+      <a href="inventory.html">Inventory</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Recipients</h1>
+    <p class="subtitle">Register blood requests and manage fulfillment</p>
+
+    <section class="form-card">
+      <h2>New Blood Request</h2>
+      <form id="recipientForm">
+        <div class="form-grid">
+          <div>
+            <label for="recName">Patient Name</label>
+            <input type="text" id="recName" required placeholder="e.g. Priya S">
+          </div>
+          <div>
+            <label for="recAge">Age</label>
+            <input type="number" id="recAge" required min="0" max="120" placeholder="e.g. 40">
+          </div>
+          <div>
+            <label for="recBloodGroup">Blood Group Needed</label>
+            <select id="recBloodGroup" required>
+              <option value="">Select</option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+            </select>
+          </div>
+          <div>
+            <label for="recUnits">Units Needed</label>
+            <input type="number" id="recUnits" required min="1" max="20" placeholder="e.g. 2">
+          </div>
+          <div>
+            <label for="recHospital">Hospital Name</label>
+            <input type="text" id="recHospital" required placeholder="e.g. Govt General Hospital">
+          </div>
+          <div>
+            <label for="recUrgency">Urgency</label>
+            <select id="recUrgency" required>
+              <option value="">Select</option>
+              <option value="Normal">Normal</option>
+              <option value="Urgent">Urgent</option>
+              <option value="Critical">Critical</option>
+            </select>
+          </div>
+          <div>
+            <label for="recContact">Contact Number</label>
+            <input type="tel" id="recContact" required pattern="[0-9]{10}" placeholder="10 digit number">
+          </div>
+        </div>
+        <button type="submit">Submit Request</button>
+      </form>
+    </section>
+
+    <section>
+   <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+  <h2>Blood Requests (<span id="recCount">0</span>)</h2>
+  <button class="btn-secondary" onclick="exportRecipientsCSV()">⬇ Export CSV</button>
+</div>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Patient</th>
+              <th>Age</th>
+              <th>Blood Group</th>
+              <th>Units</th>
+              <th>Hospital</th>
+              <th>Urgency</th>
+              <th>Contact</th>
+              <th>Status</th>
+              <th>Requested On</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="recTableBody">
+            <!-- filled by JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Blood Bank Management System &copy; 2026</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="recipients.js"></script>
+</body>
+</html>

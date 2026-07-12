@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donors - Blood Bank Management System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">🩸 Blood Bank MS</div>
+    <nav>
+      <a href="index.html">Dashboard</a>
+      <a href="donors.html">Donors</a>
+      <a href="recipients.html">Recipients</a>
+      <a href="inventory.html">Inventory</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Donors</h1>
+    <p class="subtitle">Register new donors and view donor records</p>
+
+    <section class="form-card">
+      <h2>Register New Donor</h2>
+      <form id="donorForm">
+        <div class="form-grid">
+          <div>
+            <label for="donorName">Full Name</label>
+            <input type="text" id="donorName" required placeholder="e.g. Ramesh Kumar">
+          </div>
+          <div>
+            <label for="donorAge">Age</label>
+            <input type="number" id="donorAge" required min="18" max="65" placeholder="e.g. 25">
+          </div>
+          <div>
+            <label for="donorGender">Gender</label>
+            <select id="donorGender" required>
+              <option value="">Select</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div>
+            <label for="donorBloodGroup">Blood Group</label>
+            <select id="donorBloodGroup" required>
+              <option value="">Select</option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+            </select>
+          </div>
+          <div>
+            <label for="donorContact">Contact Number</label>
+            <input type="tel" id="donorContact" required pattern="[0-9]{10}" placeholder="10 digit number">
+          </div>
+          <div>
+            <label for="donorLastDonation">Last Donation Date (if any)</label>
+            <input type="date" id="donorLastDonation">
+          </div>
+        </div>
+        <button type="submit">Register Donor</button>
+      </form>
+    </section>
+
+    <section>
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+        <h2>Donor Records (<span id="donorCount">0</span>)</h2>
+        <button class="btn-secondary" onclick="exportDonorsCSV()">⬇ Export CSV</button>
+      </div>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Gender</th>
+              <th>Blood Group</th>
+              <th>Contact</th>
+              <th>Last Donation</th>
+              <th>Registered On</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="donorTableBody">
+            <!-- filled by JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Blood Bank Management System &copy; 2026</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="donors.js"></script>
+</body>
+</html>
